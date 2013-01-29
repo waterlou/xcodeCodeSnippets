@@ -26,7 +26,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>singleton object of a class</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>defaultCenter - use dispatch_once</string>
+	<string>NSObject defaultCenter - use dispatch_once</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

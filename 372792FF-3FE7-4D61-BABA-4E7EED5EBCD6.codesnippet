@@ -23,11 +23,13 @@ AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequ
 	<string>372792FF-3FE7-4D61-BABA-4E7EED5EBCD6</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>General AFNetworking request</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>AFNetworking HTTP Request</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>

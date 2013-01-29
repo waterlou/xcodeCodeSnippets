@@ -33,7 +33,7 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>touches implementations</string>
+	<string>UIView touches implementations</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>UIView touches events</string>
 	<key>IDECodeSnippetUserSnippet</key>
