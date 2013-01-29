@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>static WTNotificationCenter *__defaultCenter = nil;
+
++(id) defaultCenter {
+    @synchronized ([WTNotificationCenter class]) {
+        if (__defaultCenter==nil) {
+            __defaultCenter = [[WTNotificationCenter alloc] init];
+        }
+    }
+    return __defaultCenter;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>03679784-5EF7-48FF-9615-0DF76A23ABC5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>defaultCenter - old</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

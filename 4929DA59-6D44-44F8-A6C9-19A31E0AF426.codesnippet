@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dddASyncToSync</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeExpression</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    dispatch_semaphore_signal(sema);
+    dispatch_semaphore_wait(se, DISPATCH_TIME_FOREVER);</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4929DA59-6D44-44F8-A6C9-19A31E0AF426</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Use dispatch_semaphore to wait for an async task to finish</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Async to sync</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
