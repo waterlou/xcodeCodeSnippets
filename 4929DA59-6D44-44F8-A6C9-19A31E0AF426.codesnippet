@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddASyncToSync</string>
+	<string>dddGCDAsyncToSync</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeExpression</string>
@@ -21,7 +21,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>Use dispatch_semaphore to wait for an async task to finish</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Async to sync</string>
+	<string>GCD Async to sync</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -9,7 +9,7 @@
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string> [[NSNotificationCenter defaultCenter] postNotificationName:&lt;#notifcation name #&gt; object:nil];
+	<string> [[NSNotificationCenter defaultCenter] postNotificationName:&lt;#notifcation name#&gt; object:nil];
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>3C554A10-FABF-41E0-8A32-59FB10954627</string>

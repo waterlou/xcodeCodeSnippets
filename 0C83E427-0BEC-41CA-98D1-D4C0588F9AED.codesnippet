@@ -3,31 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNSObjectDefaultCenterOldMethod</string>
+	<string>dddGCDCreateQueue</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>static WTNotificationCenter *__defaultCenter = nil;
-
-+(id) defaultCenter {
-    @synchronized ([WTNotificationCenter class]) {
-        if (__defaultCenter==nil) {
-            __defaultCenter = [[WTNotificationCenter alloc] init];
-        }
-    }
-    return __defaultCenter;
+	<string>- (dispatch_queue_t) &lt;#function name#&gt;
+{
+    static dispatch_queue_t queue = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&amp;onceToken, ^{
+        queue = dispatch_queue_create(&lt;#label#&gt;,&lt;#DISPATCH_QUEUE_SERIAL or DISPATCH_QUEUE_CONCURRENT#&gt;);
+    });
+    return queue;
 }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>03679784-5EF7-48FF-9615-0DF76A23ABC5</string>
+	<string>0C83E427-0BEC-41CA-98D1-D4C0588F9AED</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>create a GCD queue</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSObject defaultCenter - old method</string>
+	<string>GCD create queue</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

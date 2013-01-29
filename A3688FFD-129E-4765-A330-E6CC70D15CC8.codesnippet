@@ -3,31 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNSObjectDefaultCenterOldMethod</string>
+	<string>dddGCDDispatchGlobalQueue</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassImplementation</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>static WTNotificationCenter *__defaultCenter = nil;
-
-+(id) defaultCenter {
-    @synchronized ([WTNotificationCenter class]) {
-        if (__defaultCenter==nil) {
-            __defaultCenter = [[WTNotificationCenter alloc] init];
-        }
-    }
-    return __defaultCenter;
-}</string>
+	<string>        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            &lt;#code here#&gt;
+        });</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>03679784-5EF7-48FF-9615-0DF76A23ABC5</string>
+	<string>A3688FFD-129E-4765-A330-E6CC70D15CC8</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Dispatch global queue</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSObject defaultCenter - old method</string>
+	<string>GCD dispatch global queue</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
