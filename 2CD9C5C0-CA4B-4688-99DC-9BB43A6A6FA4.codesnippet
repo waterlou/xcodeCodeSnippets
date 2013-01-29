@@ -35,7 +35,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>touches implementations</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Objective-C UIView touches events</string>
+	<string>UIView touches events</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

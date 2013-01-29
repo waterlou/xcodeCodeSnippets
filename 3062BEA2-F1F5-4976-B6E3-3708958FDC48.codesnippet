@@ -3,28 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddASyncToSync</string>
+	<string>dddNotificationRemove</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-    /* signal when a async task finished */
-    dispatch_semaphore_signal(sema);
-    /* place wait after the block to wait for the signal */
-    dispatch_semaphore_wait(se, DISPATCH_TIME_FOREVER);</string>
+	<string> [[NSNotificationCenter defaultCenter] removeObserver:self name:&lt;#notification name#&gt; object:nil];
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>4929DA59-6D44-44F8-A6C9-19A31E0AF426</string>
+	<string>3062BEA2-F1F5-4976-B6E3-3708958FDC48</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Use dispatch_semaphore to wait for an async task to finish</string>
+	<string>Remove notification from notification center</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Async to sync</string>
+	<string>NSNotificationCenter Remove</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

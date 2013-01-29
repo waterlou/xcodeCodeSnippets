@@ -3,47 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddUIViewInit</string>
+	<string>dddDataRecordImp</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (void) setupSelf
-{
-    
-}
+	<string>@dynamic &lt;#field name#&gt;;
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        [self setupSelf];
-    }
-    return self;
-}
+IMP_ACTIVE_RECORD_SCHEMA
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder: aDecoder];
-    if (self) {
-        // Initialization code
-        [self setupSelf];
-    }
-    return self;
++ (NSDictionary*) schema {
+    return @{
+             &lt;#field name#&gt;  : @{ kWTDataSchemaKeyType: kWTDataSchemaTypeString }, kWTDataSchemaKeyIndex: @YES },kWTDataSchemaKeyDefault: &lt;#default value#&gt; }
+             };
 }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>8C92DA3E-F3F6-4474-A9E6-8B3B58C1626F</string>
+	<string>69A116E9-55FD-4A65-B7ED-618989354668</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>UIView Init for both frame and coder</string>
+	<string>Template of the implementation of a WTDataRecord class</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UIView init</string>
+	<string>WTDataRecord Implementation Template</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
