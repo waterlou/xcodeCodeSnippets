@@ -27,6 +27,23 @@ JSON AFNetworking request
         }];
         [operation start];
 
+### dddAFNetworkingMultipartForm
+Multipart from upload with process report
+
+            NSURL *url = [NSURL URLWithString:<#URL string#>];
+            AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+            NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:<#path#> parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+                //NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"avatar.jpg"], 0.5);
+                //[formData appendPartWithFileData:imageData name:@"avatar" fileName:@"avatar.jpg" mimeType:@"image/jpeg"];
+            }];
+            
+            AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+            [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+                NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+            }];
+            [httpClient enqueueHTTPRequestOperation:operation];
+        
+
 # GCD
 ### dddGCDAsyncToSync
 Use dispatch_semaphore to wait for an async task to finish
@@ -160,6 +177,26 @@ template for observeValueForKeyPath
         }
         
 
+# UIGestureRecognizer
+### dddUIGestureRecognizerDoubleTap
+Create a double tap gesture
+
+        		UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+        															  initWithTarget:<#target#> action:@selector(<#selector#>)];
+        		doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+        		[self addGestureRecognizer:doubleTapGestureRecognizer];
+        
+
+### dddUIGestureRecognizerSingleTap
+Create Single Tap Gesture
+
+            // add double tap to zoom in and zoom out options
+        	UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+        														  initWithTarget:<#target#> action:@selector(<#selector#>)];
+        	singleTapGestureRecognizer.numberOfTapsRequired = 1;
+        	[self.view addGestureRecognizer:singleTapGestureRecognizer];
+        
+
 # UIView
 ### dddUIViewInit
 UIView Init for both frame and coder
@@ -211,6 +248,28 @@ UIView touches implementations
         - (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
         {
         }
+
+# UIViewController
+### dddUIViewControllerRotation
+Template for implmenting UIViewController rotation
+
+        #pragma mark rotation
+        
+        - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+            return YES;
+            //return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
+        }
+        
+        #pragma mark iOS 6 rotation
+        
+        - (BOOL) shouldAutorotate{
+            return YES;
+        }
+        
+        - (NSUInteger) supportedInterfaceOrientations{
+            return UIInterfaceOrientationMaskAll;
+        }
+        
 
 # WTDataRecord
 ### dddDataRecordImp
