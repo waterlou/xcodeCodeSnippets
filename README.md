@@ -4,14 +4,14 @@ General AFNetworking request
 
         NSURL *url = [NSURL URLWithString:<#URL String#>];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-            
+        
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-            [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             // response success, operation.responseString
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                // response failed
-            }];
-            [operation start];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // response failed
+        }];
+        [operation start];
 
 ### dddAFNetworkingJSONRequest
 JSON AFNetworking request
@@ -30,51 +30,51 @@ JSON AFNetworking request
 ### dddAFNetworkingMultipartForm
 Multipart from upload with process report
 
-            NSURL *url = [NSURL URLWithString:<#URL string#>];
-            AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-            NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:<#path#> parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-                //NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"avatar.jpg"], 0.5);
-                //[formData appendPartWithFileData:imageData name:@"avatar" fileName:@"avatar.jpg" mimeType:@"image/jpeg"];
-            }];
-            
-            AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-            [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-                NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
-            }];
-            [httpClient enqueueHTTPRequestOperation:operation];
+        NSURL *url = [NSURL URLWithString:￼];
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+        NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:￼ parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+            //NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"avatar.jpg"], 0.5);
+            //[formData appendPartWithFileData:imageData name:@"avatar" fileName:@"avatar.jpg" mimeType:@"image/jpeg"];
+        }];
+        
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+            NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+        }];
+        [httpClient enqueueHTTPRequestOperation:operation];
         
 
 # GCD
 ### dddGCDAsyncToSync
 Use dispatch_semaphore to wait for an async task to finish
 
-            dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-            /* signal when a async task finished */
-            dispatch_semaphore_signal(sema);
-            /* place wait after the block to wait for the signal */
-            dispatch_semaphore_wait(se, DISPATCH_TIME_FOREVER);
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+        /* signal when a async task finished */
+        dispatch_semaphore_signal(sema);
+        /* place wait after the block to wait for the signal */
+        dispatch_semaphore_wait(se, DISPATCH_TIME_FOREVER);
 
 ### dddGCDBackgroundTask
 Code block to perform background multitasking, will check for the device multitasking supports
 
-            if ([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)]) { //Check if our iOS version supports multitasking I.E iOS 4
-                if ([[UIDevice currentDevice] isMultitaskingSupported]) { //Check if device supports mulitasking
-                    __block UIBackgroundTaskIdentifier background_task; //Create a task object
-                    background_task = [application beginBackgroundTaskWithExpirationHandler: ^ {
-                        //We can add some code here before OS kill this task
-                        [application endBackgroundTask: background_task]; //Tell the system that we are done with the tasks
-                        background_task = UIBackgroundTaskInvalid; //Set the task to be invalid
-                        //System will be shutting down the app at any point in time now
-                    }];
-                    //Background tasks require you to use async tasks
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                        //Perform your tasks that your application requires
-                        <#code here#>
-                        [application endBackgroundTask: background_task]; //End the task so the system knows that you are done with what you need to perform
-                        background_task = UIBackgroundTaskInvalid; //Invalidate the background_task
-                    });
-                }
+        if ([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)]) { //Check if our iOS version supports multitasking I.E iOS 4
+            if ([[UIDevice currentDevice] isMultitaskingSupported]) { //Check if device supports mulitasking
+                __block UIBackgroundTaskIdentifier background_task; //Create a task object
+                background_task = [application beginBackgroundTaskWithExpirationHandler: ^ {
+                    //We can add some code here before OS kill this task
+                    [application endBackgroundTask: background_task]; //Tell the system that we are done with the tasks
+                    background_task = UIBackgroundTaskInvalid; //Set the task to be invalid
+                    //System will be shutting down the app at any point in time now
+                }];
+                //Background tasks require you to use async tasks
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    //Perform your tasks that your application requires
+                    ￼
+                    [application endBackgroundTask: background_task]; //End the task so the system knows that you are done with what you need to perform
+                    background_task = UIBackgroundTaskInvalid; //Invalidate the background_task
+                });
             }
+        }
         
 
 ### dddGCDCreateQueue
@@ -95,22 +95,22 @@ scheduled block
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, <#seconds#> * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             <#code here#>
-            });
+        });
         
 
 ### dddGCDDispatchGlobalQueue
 Dispatch global queue
 
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                    <#code here#>
-                });
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            ￼
+        });
 
 ### dddGCDDispatchMain
 Dispatch main queue
 
-                dispatch_async(dispatch_get_main_queue(),^ {
-                    <#code here#>
-                });
+        dispatch_async(dispatch_get_main_queue(),^ {
+            ￼
+        });
 
 # NSNotificationCenter
 ### dddNotificationObserve
@@ -121,13 +121,13 @@ Observe an notification
 ### dddNotificationPost
 Post notification to notification center
 
-         [[NSNotificationCenter defaultCenter] postNotificationName:<#notifcation name#> object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:<#notifcation name#> object:nil];
         
 
 ### dddNotificationRemove
 Remove notification from notification center
 
-         [[NSNotificationCenter defaultCenter] removeObserver:self name:<#notification name#> object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:<#notification name#> object:nil];
         
 
 # NSObject
@@ -181,20 +181,20 @@ template for observeValueForKeyPath
 ### dddUIGestureRecognizerDoubleTap
 Create a double tap gesture
 
-        		UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-        															  initWithTarget:<#target#> action:@selector(<#selector#>)];
-        		doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-        		[self addGestureRecognizer:doubleTapGestureRecognizer];
+        UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                                              initWithTarget:￼ action:@selector(￼)];
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+        [self addGestureRecognizer:doubleTapGestureRecognizer];
         
 
 ### dddUIGestureRecognizerSingleTap
 Create Single Tap Gesture
 
-            // add double tap to zoom in and zoom out options
-        	UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-        														  initWithTarget:<#target#> action:@selector(<#selector#>)];
-        	singleTapGestureRecognizer.numberOfTapsRequired = 1;
-        	[self.view addGestureRecognizer:singleTapGestureRecognizer];
+        // add double tap to zoom in and zoom out options
+        UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                                              initWithTarget:￼ action:@selector(￼)];
+        singleTapGestureRecognizer.numberOfTapsRequired = 1;
+        [self.view addGestureRecognizer:singleTapGestureRecognizer];
         
 
 # UIView

@@ -9,7 +9,7 @@
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string> [[NSNotificationCenter defaultCenter] removeObserver:self name:&lt;#notification name#&gt; object:nil];
+	<string>[[NSNotificationCenter defaultCenter] removeObserver:self name:&lt;#notification name#&gt; object:nil];
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>3062BEA2-F1F5-4976-B6E3-3708958FDC48</string>

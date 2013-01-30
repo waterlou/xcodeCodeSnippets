@@ -9,9 +9,9 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            &lt;#code here#&gt;
-        });</string>
+	<string>dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    ￼
+});</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>A3688FFD-129E-4765-A330-E6CC70D15CC8</string>
 	<key>IDECodeSnippetLanguage</key>

@@ -11,7 +11,7 @@
 	<key>IDECodeSnippetContents</key>
 	<string>dispatch_after(dispatch_time(DISPATCH_TIME_NOW, &lt;#seconds#&gt; * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
     &lt;#code here#&gt;
-    });
+});
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>35AC322C-C658-442F-8D44-8B87904EAE01</string>

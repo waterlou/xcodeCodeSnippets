@@ -9,11 +9,11 @@
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-    /* signal when a async task finished */
-    dispatch_semaphore_signal(sema);
-    /* place wait after the block to wait for the signal */
-    dispatch_semaphore_wait(se, DISPATCH_TIME_FOREVER);</string>
+	<string>dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+/* signal when a async task finished */
+dispatch_semaphore_signal(sema);
+/* place wait after the block to wait for the signal */
+dispatch_semaphore_wait(se, DISPATCH_TIME_FOREVER);</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>4929DA59-6D44-44F8-A6C9-19A31E0AF426</string>
 	<key>IDECodeSnippetLanguage</key>

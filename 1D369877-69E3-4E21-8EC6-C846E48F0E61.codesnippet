@@ -9,10 +9,10 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>		UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
-															  initWithTarget:&lt;#target#&gt; action:@selector(&lt;#selector#&gt;)];
-		doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-		[self addGestureRecognizer:doubleTapGestureRecognizer];
+	<string>UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                                      initWithTarget:￼ action:@selector(￼)];
+doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+[self addGestureRecognizer:doubleTapGestureRecognizer];
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>1D369877-69E3-4E21-8EC6-C846E48F0E61</string>

@@ -11,14 +11,14 @@
 	<key>IDECodeSnippetContents</key>
 	<string>NSURL *url = [NSURL URLWithString:&lt;#URL String#&gt;];
 NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
+
 AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
     // response success, operation.responseString
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        // response failed
-    }];
-    [operation start];</string>
+} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    // response failed
+}];
+[operation start];</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>372792FF-3FE7-4D61-BABA-4E7EED5EBCD6</string>
 	<key>IDECodeSnippetLanguage</key>
