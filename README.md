@@ -27,6 +27,20 @@ JSON AFNetworking request
         }];
         [operation start];
 
+### dddAFNetworkingKissXMLRequest
+AFNetworking XML Request direct to an object
+
+        NSURL *url = [NSURL URLWithString:￼];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        AFKissXMLRequestOperation *operation = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
+            // NSLog(@"XMLDocument: %@", XMLDocument);
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument) {
+            // response failed
+        }];
+        [operation start];
+        
+
 ### dddAFNetworkingMultipartForm
 Multipart from upload with process report
 
