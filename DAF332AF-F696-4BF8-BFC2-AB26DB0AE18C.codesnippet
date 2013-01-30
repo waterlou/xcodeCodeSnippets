@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dddGCDBackgroundTask</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeExpression</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    if ([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)]) { //Check if our iOS version supports multitasking I.E iOS 4
+        if ([[UIDevice currentDevice] isMultitaskingSupported]) { //Check if device supports mulitasking
+            __block UIBackgroundTaskIdentifier background_task; //Create a task object
+            background_task = [application beginBackgroundTaskWithExpirationHandler: ^ {
+                //We can add some code here before OS kill this task
+                [application endBackgroundTask: background_task]; //Tell the system that we are done with the tasks
+                background_task = UIBackgroundTaskInvalid; //Set the task to be invalid
+                //System will be shutting down the app at any point in time now
+            }];
+            //Background tasks require you to use async tasks
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                //Perform your tasks that your application requires
+                &lt;#code here#&gt;
+                [application endBackgroundTask: background_task]; //End the task so the system knows that you are done with what you need to perform
+                background_task = UIBackgroundTaskInvalid; //Invalidate the background_task
+            });
+        }
+    }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>DAF332AF-F696-4BF8-BFC2-AB26DB0AE18C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Code block to perform background multitasking, will check for the device multitasking supports</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>GCD Background Multitasking</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
