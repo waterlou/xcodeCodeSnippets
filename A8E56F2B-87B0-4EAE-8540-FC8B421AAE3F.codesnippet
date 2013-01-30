@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dddUIGestureRecognizerSingleTap</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    // add double tap to zoom in and zoom out options
+	UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+														  initWithTarget:&lt;#target#&gt; action:@selector(&lt;#selector#&gt;)];
+	singleTapGestureRecognizer.numberOfTapsRequired = 1;
+	[self.view addGestureRecognizer:singleTapGestureRecognizer];
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A8E56F2B-87B0-4EAE-8540-FC8B421AAE3F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Create Single Tap Gesture</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UIGestureRecognizer Single Tap</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
