@@ -3,26 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddGCDDispatchMain</string>
+	<string>dddGCDWeakSelf</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>dispatch_async(dispatch_get_main_queue(),^ {
-    &lt;# code here #&gt;
-});</string>
+	<string>__weak __typeof(&amp;*self)weakSelf = self;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E97B8B96-25D7-429D-9B70-74D9E891B569</string>
+	<string>E8A0888C-9980-4B8E-BAAA-4E779FA6FEE1</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Dispatch main queue</string>
+	<string>prepare weak self to prevent cyclic lock</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>GCD dispatch main queue</string>
+	<string>GCD weak self</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

@@ -18,7 +18,9 @@ AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequ
 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     // response failed
 }];
-[operation start];</string>
+[operation start];
+//[operationQueue addOperation:operation];  // or using operation queue
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>372792FF-3FE7-4D61-BABA-4E7EED5EBCD6</string>
 	<key>IDECodeSnippetLanguage</key>
