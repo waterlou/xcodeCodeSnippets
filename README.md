@@ -1,4 +1,11 @@
 # AFNetworking
+### dddAFNetworkingCacheStorageAllowed
+Code block allow to override cache policy to store to disk
+
+        [operation setCacheResponseBlock:^NSCachedURLResponse *(NSURLConnection *connection, NSCachedURLResponse *cachedResponse) {
+            return [[NSCachedURLResponse alloc] initWithResponse:cachedResponse.response data:cachedResponse.data userInfo:cachedResponse.userInfo storagePolicy:NSURLCacheStorageAllowed];
+        }];
+
 ### dddAFNetworkingHTTPRequest
 General AFNetworking request
 
@@ -12,6 +19,23 @@ General AFNetworking request
             // response failed
         }];
         [operation start];
+        //[operationQueue addOperation:operation];  // or using operation queue
+        
+
+### dddAFNetworkingImageRequest
+Request an image
+
+        NSURL *url = [NSURL URLWithString:<#URL String#>];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        operation = [AFImageRequestOperation imageRequestOperationWithRequest:request success:^(NSImage *image) {
+            <#code here#>
+        }];
+        
+        [operation start];
+        //[operationQueue addOperation:operation];  // or using operation queue
+        
+        
 
 ### dddAFNetworkingJSONRequest
 JSON AFNetworking request
@@ -26,6 +50,7 @@ JSON AFNetworking request
             // response failed
         }];
         [operation start];
+        //[operationQueue addOperation:operation];  // or using operation queue
 
 ### dddAFNetworkingKissXMLRequest
 AFNetworking XML Request direct to an object
@@ -39,6 +64,8 @@ AFNetworking XML Request direct to an object
             // response failed
         }];
         [operation start];
+        //[operationQueue addOperation:operation];  // or using operation queue
+        
         
 
 ### dddAFNetworkingMultipartForm
@@ -56,6 +83,19 @@ Multipart from upload with process report
             NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
         }];
         [httpClient enqueueHTTPRequestOperation:operation];
+        
+
+### dddAFNetworkingSimpleXMLRequest
+Request XML and convert to NSDictionary/NSOBject directly
+
+        NSURL *url = [NSURL URLWithString:<#URL String#>];
+                NSURLRequest *request = [NSURLRequest requestWithURL:url];        
+                AFSimpleXMLRequestOperation *operation = [AFSimpleXMLRequestOperation simpleXMLRequestOperationWithRequest:request forceArrayNodes:nil success:^(AFSimpleXMLRequestOperation *operation, NSDictionary *result) {
+                    <#code here#>
+                } failure:^(AFSimpleXMLRequestOperation *operation, NSError *error) {
+                    // response failed
+                }];
+                [operation start];
         
 
 # GCD
@@ -123,8 +163,13 @@ Dispatch global queue
 Dispatch main queue
 
         dispatch_async(dispatch_get_main_queue(),^ {
-            ￼
+            <# code here #>
         });
+
+### dddGCDWeakSelf
+prepare weak self to prevent cyclic lock
+
+        __weak __typeof(&*self)weakSelf = self;
 
 # NSNotificationCenter
 ### dddNotificationObserve
@@ -150,7 +195,7 @@ singleton object of a class
 
         + (<#class name#>*) defaultCenter
         {
-            static __object *defaultCenter = nil;
+            static <#class name#> *defaultCenter = nil;
             static dispatch_once_t onceToken;
             dispatch_once(&onceToken, ^{
                 defaultCenter = [[<#class name#> alloc] init];
@@ -191,6 +236,20 @@ template for observeValueForKeyPath
         }
         
 
+# NSOperationQueue
+### dddNSOperationQueueCreate
+Create Shared Queue
+
+        + (NSOperationQueue *) <#sharedOperationQueue#> {
+            static NSOperationQueue *sharedOperationQueue = nil;
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                sharedOperationQueue = [[NSOperationQueue alloc] init];
+                [sharedOperationQueue setMaxConcurrentOperationCount:<#max concurrent#>];
+            });    
+            return sharedOperationQueue;
+        }
+
 # UIGestureRecognizer
 ### dddUIGestureRecognizerDoubleTap
 Create a double tap gesture
@@ -209,6 +268,17 @@ Create Single Tap Gesture
                                                               initWithTarget:￼ action:@selector(￼)];
         singleTapGestureRecognizer.numberOfTapsRequired = 1;
         [self.view addGestureRecognizer:singleTapGestureRecognizer];
+        
+
+# UIImage
+### dddUIImageDrawOnContext
+Get UIImage by draw on graphics context
+
+        UIGraphicsBeginImageContextWithOptions(<#rect#>, NO, [UIScreen mainScreen].scale);
+            //[color setFill];
+            //CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
+        	UIImage *ret = UIGraphicsGetImageFromCurrentImageContext();
+        	UIGraphicsEndImageContext();
         
 
 # UIView

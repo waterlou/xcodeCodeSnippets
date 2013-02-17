@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dddUIImageDrawOnContext</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeExpression</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>UIGraphicsBeginImageContextWithOptions(&lt;#rect#&gt;, NO, [UIScreen mainScreen].scale);
+    //[color setFill];
+    //CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
+	UIImage *ret = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>BD32CA20-F4F9-4986-A447-2F14D42E1CDB</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Get UIImage by draw on graphics context</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UIImage draw on context</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
