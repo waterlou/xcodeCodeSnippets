@@ -228,7 +228,10 @@ template for observeValueForKeyPath
         
             if (context == <#yourContext#>)
             {
-                <#code here#>
+                if (![change[NSKeyValueChangeNewKey] isEqual:change[NSKeyValueChangeOldKey]])
+                {
+                    <#code here#>
+                }
             }
             else {
                 [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -248,6 +251,28 @@ Create Shared Queue
                 [sharedOperationQueue setMaxConcurrentOperationCount:<#max concurrent#>];
             });    
             return sharedOperationQueue;
+        }
+
+# UIControl
+### dddUIControlTouchesEvents
+UIControl touches implementation
+
+        - (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+        {
+            // YES if the receiver is set to respond continuously or set to respond when a touch is dragged; otherwise NO.
+            return YES;
+        }
+        - (BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+        {
+            return YES;
+        }
+        - (void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+        {
+            
+        }
+        - (void)cancelTrackingWithEvent:(UIEvent *)event
+        {
+            
         }
 
 # UIGestureRecognizer
