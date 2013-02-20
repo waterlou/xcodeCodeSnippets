@@ -3,30 +3,29 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNSObjectDefaultCenter</string>
+	<string>dddNSOperationQueueCreate</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>+ (&lt;#class name#&gt;*) defaultCenter
-{
-    static &lt;#class name#&gt; *defaultCenter = nil;
+	<string>+ (NSOperationQueue *) &lt;#sharedOperationQueue#&gt; {
+    static NSOperationQueue *sharedOperationQueue = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&amp;onceToken, ^{
-        defaultCenter = [[&lt;#class name#&gt; alloc] init];
-    });
-    return defaultCenter;
-}
-</string>
+        sharedOperationQueue = [[NSOperationQueue alloc] init];
+        [sharedOperationQueue setMaxConcurrentOperationCount:&lt;#max concurrent#&gt;];
+    });    
+    return sharedOperationQueue;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>4A5FDD69-0280-40E1-9FDC-23502A25FA8A</string>
+	<string>7C4D296D-66AD-4DFC-B893-DE40CB58E2BE</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>singleton object of a class</string>
+	<string>Create Shared Queue</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSObject defaultCenter - use dispatch_once</string>
+	<string>NSOperationQueue Create Queue</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -3,22 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNotificationPost</string>
+	<string>dddUIGestureRecognizerDoubleTap</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[[NSNotificationCenter defaultCenter] postNotificationName:&lt;#notifcation name#&gt; object:nil];
+	<string>UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]
+                                                      initWithTarget:￼ action:@selector(￼)];
+doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+[self addGestureRecognizer:doubleTapGestureRecognizer];
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>3C554A10-FABF-41E0-8A32-59FB10954627</string>
+	<string>1D369877-69E3-4E21-8EC6-C846E48F0E61</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Post notification to notification center</string>
+	<string>Create a double tap gesture</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSNotificationCenter Post</string>
+	<string>UIGestureRecognizer Double Tap Gesture</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

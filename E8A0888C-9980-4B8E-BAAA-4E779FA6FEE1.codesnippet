@@ -3,25 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNotificationPost</string>
+	<string>dddGCDWeakSelf</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[[NSNotificationCenter defaultCenter] postNotificationName:&lt;#notifcation name#&gt; object:nil];
-</string>
+	<string>__weak __typeof(&amp;*self)weakSelf = self;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>3C554A10-FABF-41E0-8A32-59FB10954627</string>
+	<string>E8A0888C-9980-4B8E-BAAA-4E779FA6FEE1</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Post notification to notification center</string>
+	<string>prepare weak self to prevent cyclic lock</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSNotificationCenter Post</string>
+	<string>GCD weak self</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

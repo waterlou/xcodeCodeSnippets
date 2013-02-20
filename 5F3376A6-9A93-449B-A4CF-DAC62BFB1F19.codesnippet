@@ -3,30 +3,37 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNSObjectDefaultCenter</string>
+	<string>dddUIViewControllerRotation</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>+ (&lt;#class name#&gt;*) defaultCenter
-{
-    static &lt;#class name#&gt; *defaultCenter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&amp;onceToken, ^{
-        defaultCenter = [[&lt;#class name#&gt; alloc] init];
-    });
-    return defaultCenter;
+	<string>#pragma mark rotation
+
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+    //return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
+}
+
+#pragma mark iOS 6 rotation
+
+- (BOOL) shouldAutorotate{
+    return YES;
+}
+
+- (NSUInteger) supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
 }
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>4A5FDD69-0280-40E1-9FDC-23502A25FA8A</string>
+	<string>5F3376A6-9A93-449B-A4CF-DAC62BFB1F19</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>singleton object of a class</string>
+	<string>Template for implmenting UIViewController rotation</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSObject defaultCenter - use dispatch_once</string>
+	<string>UIViewController Rotation</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

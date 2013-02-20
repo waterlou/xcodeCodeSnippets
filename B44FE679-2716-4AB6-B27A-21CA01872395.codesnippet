@@ -3,31 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddAFNetworkingJSONRequest</string>
+	<string>dddAFNetworkingKissXMLRequest</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>NSURL *url = [NSURL URLWithString:&lt;#URL String#&gt;];
+	<string>NSURL *url = [NSURL URLWithString:￼];
 NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
-AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-    // NSString *status = [JSON valueForKeyPath:@"status"];
-    &lt;#code here#&gt;
-} failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
+AFKissXMLRequestOperation *operation = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
+    // NSLog(@"XMLDocument: %@", XMLDocument);
+} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument) {
     // response failed
 }];
 [operation start];
-//[operationQueue addOperation:operation];  // or using operation queue</string>
+//[operationQueue addOperation:operation];  // or using operation queue
+
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>175F3C14-9329-4A60-BA0D-AC674F816902</string>
+	<string>B44FE679-2716-4AB6-B27A-21CA01872395</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>JSON AFNetworking request</string>
+	<string>AFNetworking XML Request direct to an object</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>AFNetworking JSON Request</string>
+	<string>AFNetworking Kiss XML Request</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

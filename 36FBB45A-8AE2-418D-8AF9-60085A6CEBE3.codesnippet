@@ -3,22 +3,31 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNotificationPost</string>
+	<string>dddAFNetworkingImageRequest</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[[NSNotificationCenter defaultCenter] postNotificationName:&lt;#notifcation name#&gt; object:nil];
+	<string>NSURL *url = [NSURL URLWithString:&lt;#URL String#&gt;];
+NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+operation = [AFImageRequestOperation imageRequestOperationWithRequest:request success:^(NSImage *image) {
+    &lt;#code here#&gt;
+}];
+
+[operation start];
+//[operationQueue addOperation:operation];  // or using operation queue
+
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>3C554A10-FABF-41E0-8A32-59FB10954627</string>
+	<string>36FBB45A-8AE2-418D-8AF9-60085A6CEBE3</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Post notification to notification center</string>
+	<string>Request an image</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSNotificationCenter Post</string>
+	<string>AFNetworking Image Request</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

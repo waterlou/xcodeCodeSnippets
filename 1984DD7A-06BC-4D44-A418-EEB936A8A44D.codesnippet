@@ -3,22 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNotificationPost</string>
+	<string>dddAFNetworkingCacheStorageAllowed</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[[NSNotificationCenter defaultCenter] postNotificationName:&lt;#notifcation name#&gt; object:nil];
-</string>
+	<string>[operation setCacheResponseBlock:^NSCachedURLResponse *(NSURLConnection *connection, NSCachedURLResponse *cachedResponse) {
+    return [[NSCachedURLResponse alloc] initWithResponse:cachedResponse.response data:cachedResponse.data userInfo:cachedResponse.userInfo storagePolicy:NSURLCacheStorageAllowed];
+}];</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>3C554A10-FABF-41E0-8A32-59FB10954627</string>
+	<string>1984DD7A-06BC-4D44-A418-EEB936A8A44D</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Post notification to notification center</string>
+	<string>Code block allow to override cache policy to store to disk</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSNotificationCenter Post</string>
+	<string>AFNetworking Allow Cache To Disk</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

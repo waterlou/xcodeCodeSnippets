@@ -3,25 +3,29 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNotificationPost</string>
+	<string>dddUIImageDrawOnContext</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[[NSNotificationCenter defaultCenter] postNotificationName:&lt;#notifcation name#&gt; object:nil];
+	<string>UIGraphicsBeginImageContextWithOptions(&lt;#rect#&gt;, NO, [UIScreen mainScreen].scale);
+    //[color setFill];
+    //CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
+	UIImage *ret = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>3C554A10-FABF-41E0-8A32-59FB10954627</string>
+	<string>BD32CA20-F4F9-4986-A447-2F14D42E1CDB</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Post notification to notification center</string>
+	<string>Get UIImage by draw on graphics context</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSNotificationCenter Post</string>
+	<string>UIImage draw on context</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
