@@ -16,7 +16,10 @@
 
     if (context == &lt;#yourContext#&gt;)
     {
-        &lt;#code here#&gt;
+        if (![change[NSKeyValueChangeNewKey] isEqual:change[NSKeyValueChangeOldKey]])
+        {
+            &lt;#code here#&gt;
+        }
     }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

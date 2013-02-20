@@ -3,39 +3,37 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddUIViewTouches</string>
+	<string>dddUIControlTouchesEvents</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+	<string>- (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint point = [touch locationInView: self];
+    // YES if the receiver is set to respond continuously or set to respond when a touch is dragged; otherwise NO.
+    return YES;
 }
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+- (BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint point = [touch locationInView: self];
+    return YES;
 }
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    
 }
-
-- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)cancelTrackingWithEvent:(UIEvent *)event
 {
+    
 }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2CD9C5C0-CA4B-4688-99DC-9BB43A6A6FA4</string>
+	<string>DE86BF00-5E4D-4EDC-9C58-1FD06245B2F6</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>UIView touches implementations</string>
+	<string>UIControl touches implementation</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UIView Touches Events</string>
+	<string>UIControl Touches Events</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
