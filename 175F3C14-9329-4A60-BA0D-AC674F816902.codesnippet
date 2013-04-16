@@ -16,6 +16,9 @@ AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperation
     // NSString *status = [JSON valueForKeyPath:@"status"];
     &lt;#code here#&gt;
 } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
+    if (error.code==NSURLErrorCancelled) {
+        return; // manual cancel
+    }
     // response failed
 }];
 [operation start];

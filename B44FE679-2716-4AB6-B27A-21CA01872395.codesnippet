@@ -15,6 +15,9 @@ NSURLRequest *request = [NSURLRequest requestWithURL:url];
 AFKissXMLRequestOperation *operation = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
     // NSLog(@"XMLDocument: %@", XMLDocument);
 } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument) {
+    if (error.code==NSURLErrorCancelled) {
+        return; // manual cancel
+    }
     // response failed
 }];
 [operation start];

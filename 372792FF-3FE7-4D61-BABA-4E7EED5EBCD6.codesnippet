@@ -16,6 +16,9 @@ AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequ
 [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
     // response success, operation.responseString
 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    if (error.code==NSURLErrorCancelled) {
+        return; // manual cancel
+    }
     // response failed
 }];
 [operation start];

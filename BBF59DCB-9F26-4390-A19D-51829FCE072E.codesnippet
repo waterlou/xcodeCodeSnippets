@@ -14,6 +14,9 @@
         AFSimpleXMLRequestOperation *operation = [AFSimpleXMLRequestOperation simpleXMLRequestOperationWithRequest:request forceArrayNodes:nil success:^(AFSimpleXMLRequestOperation *operation, NSDictionary *result) {
             &lt;#code here#&gt;
         } failure:^(AFSimpleXMLRequestOperation *operation, NSError *error) {
+            if (error.code==NSURLErrorCancelled) {
+                return; // manual cancel
+            }
             // response failed
         }];
         [operation start];
