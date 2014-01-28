@@ -9,7 +9,7 @@
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>NSURL *url = [NSURL URLWithString:￼];
+	<string>NSURL *url = [NSURL URLWithString:￼&lt;#URL String#&gt;];
 AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
 NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:￼ parameters:nil constructingBodyWithBlock: ^(id &lt;AFMultipartFormData&gt;formData) {
     //NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"avatar.jpg"], 0.5);
@@ -27,9 +27,9 @@ AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequ
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Multipart from upload with process report</string>
+	<string>Multipart form upload with process report</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>AFNetworking Mulitpart From</string>
+	<string>AFNetworking Mulitpart Form</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

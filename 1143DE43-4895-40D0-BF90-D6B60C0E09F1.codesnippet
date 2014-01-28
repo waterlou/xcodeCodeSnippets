@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dddAFNetworkingJSONPostForm</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeExpression</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSURL *url = [NSURL URLWithString:&lt;#URL String#&gt;];
+    AFHTTPClient* client = [[AFHTTPClient alloc] initWithBaseURL:url];
+NSDictionary* parameters = @{&lt;#Post Dict#&gt;};
+    NSMutableURLRequest * request = [client requestWithMethod:@"POST" path:@"/api/users/login" parameters:parameters];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        // NSString *status = [JSON valueForKeyPath:@"status"];
+        NSLog(@"success: %@", JSON);
+        
+    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
+        if (error.code==NSURLErrorCancelled) {
+            return; // manual cancel
+        }
+        // response failed
+        NSInteger statusCode = [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
+        NSLog(@"error: %d &gt;&gt; %@", statusCode, error);
+    }];
+    [operation start];
+    //[operationQueue addOperation:operation];  // or using operation queue</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1143DE43-4895-40D0-BF90-D6B60C0E09F1</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Post JSON data</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>AFNetworking JSON Post Form</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

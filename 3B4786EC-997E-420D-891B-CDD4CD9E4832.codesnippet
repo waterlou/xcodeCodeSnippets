@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dddUIKitIpadOnly</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeExpression</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_3_2
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+      &lt;# code here #&gt;
+  }
+#endif</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3B4786EC-997E-420D-891B-CDD4CD9E4832</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>iPad Only</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UIKit iPad only code</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

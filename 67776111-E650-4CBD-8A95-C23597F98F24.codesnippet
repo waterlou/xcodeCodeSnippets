@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dddAFNetworkingJSONFileUpload</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeExpression</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    NSData *imageToUpload = UIImageJPEGRepresentation([UIImage imageNamed:@"test.jpg"], 90);
+AFHTTPClient *client= [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:&lt;#URL String#&gt;]];
+    
+    NSMutableURLRequest *request = [client multipartFormRequestWithMethod:@"POST" path:@"/api/upload" parameters:nil constructingBodyWithBlock: ^(id &lt;AFMultipartFormData&gt;formData) {
+        [formData appendPartWithFileData: imageToUpload name:@"file" fileName:@"temp.jpeg" mimeType:@"image/jpeg"];
+    }];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        // NSString *status = [JSON valueForKeyPath:@"status"];
+        NSLog(@"success: %@", JSON);
+    } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
+        if (error.code==NSURLErrorCancelled) {
+            return; // manual cancel
+        }
+        // response failed
+        NSInteger statusCode = [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
+        NSLog(@"error: %d &gt;&gt; %@", statusCode, error);
+    }];
+    
+    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        CGFloat progress = ((CGFloat)totalBytesWritten) / totalBytesExpectedToWrite;
+        NSLog(@"%f uploaded", progress);
+    }];
+    
+    [operation start];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>67776111-E650-4CBD-8A95-C23597F98F24</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Upload image with JSON data</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>AFNetworking JSON Image Upload</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

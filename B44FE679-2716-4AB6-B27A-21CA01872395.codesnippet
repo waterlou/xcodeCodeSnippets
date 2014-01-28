@@ -9,7 +9,7 @@
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>NSURL *url = [NSURL URLWithString:￼];
+	<string>NSURL *url = [NSURL URLWithString:&lt;#URL String#&gt;￼];
 NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
 AFKissXMLRequestOperation *operation = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
