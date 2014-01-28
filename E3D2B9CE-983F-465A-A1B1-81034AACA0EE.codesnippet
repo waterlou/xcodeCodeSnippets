@@ -3,29 +3,29 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddNSFoundationVersionNumber</string>
+	<string>dddUIDeviceUserInterfaceIdiom</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    if (floor(NSFoundationVersionNumber) &lt;= NSFoundationVersionNumber_iOS_6_1) {
-        // Load resources for iOS 6.1 or earlier
+	<string>    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        &lt;# code for iPhone #&gt;
     } else {
-        // Load resources for iOS 7 or later
+        &lt;# code for iPad #&gt;
     }
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9533B9CB-8A0B-4AF8-AAC0-DD6D3D82D0DA</string>
+	<string>E3D2B9CE-983F-465A-A1B1-81034AACA0EE</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>iOS version checking</string>
+	<string>Check either it's iPhone or iPad</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSFoundationVersionNumber</string>
+	<string>UIDeviceUserInterfaceIdiom</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
