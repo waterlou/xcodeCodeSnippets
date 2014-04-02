@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dddAFNetworking2</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeExpression</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSURL *url = [NSURL URLWithString:&lt;#URL String#&gt;];
+NSURLRequest *request = [NSURLRequest requestWithURL:url];
+AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+//operation.responseSerializer = [AFSimpleXMLResponseSerializer serializer];
+//operation.responseSerializer = [AFJSONResponseSerializer serializer];
+//operation.responseSerializer = [AFXMLParserResponseSerializer serializer];
+[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, NSDictionary *result) {
+    &lt;# success code #&gt;
+} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    if (error.code==NSURLErrorCancelled) {
+        return; // manual cancel
+    }
+    &lt;# failure code #&gt;
+}];
+[operation start];
+//[_operationQueue addOperation:operation];
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>D481BE28-67FC-4628-AE91-F1279C5BC7F9</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>AFNetworking 2 code snippet</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>AFNetworking 2 code snippet</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

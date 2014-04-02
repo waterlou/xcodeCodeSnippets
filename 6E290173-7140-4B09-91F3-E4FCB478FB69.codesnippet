@@ -3,21 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddGCDWeakSelf</string>
+	<string>dddIOS7ConditionBranch</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeExpression</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>__weak __typeof(self)weakSelf = self;</string>
+	<string>    if (floor(NSFoundationVersionNumber) &gt; NSFoundationVersionNumber_iOS_6_1) {
+        // iOS 7
+    }
+    else {
+    }
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E8A0888C-9980-4B8E-BAAA-4E779FA6FEE1</string>
+	<string>6E290173-7140-4B09-91F3-E4FCB478FB69</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>prepare weak self to prevent cyclic lock</string>
+	<string>iOS 6.1 and iOS7 branch</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>GCD weak self</string>
+	<string>iOS7conditionBranch</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
