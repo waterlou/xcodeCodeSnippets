@@ -11,12 +11,16 @@
 	<key>IDECodeSnippetContents</key>
 	<string>#pragma mark rotation
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED &lt; __IPHONE_6_0
+
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
     //return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
 }
 
-#pragma mark iOS 6 rotation
+#endif
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_6_0
 
 - (BOOL) shouldAutorotate{
     return YES;
@@ -25,7 +29,13 @@
 - (NSUInteger) supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskAll;
 }
-</string>
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return UIInterfaceOrientationPortrait;
+}
+
+#endif</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>5F3376A6-9A93-449B-A4CF-DAC62BFB1F19</string>
 	<key>IDECodeSnippetLanguage</key>

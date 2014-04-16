@@ -18,7 +18,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>convert weakSelf back to strongSelf</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Strong Self</string>
+	<string>GCD strong self</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

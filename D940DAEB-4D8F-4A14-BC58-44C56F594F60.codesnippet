@@ -20,7 +20,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>By default iOS 7 will extend layout to top and bottom bar, add this in viewDidLoad to suppress this</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>iOS 7 not extend layout</string>
+	<string>UIView iOS7 not extend layout</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

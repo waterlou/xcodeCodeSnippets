@@ -3,15 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dddDirectiveiPhoneVersion</string>
+	<string>dddDirectiveiPhoneOSVersionMaxAllowed</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt; __IPHONE_7_0
+	<string>#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_6_0
+// compile this code only when using SDK 6.0 or above
 &lt;#code here#&gt;
-#endif</string>
+#endif
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>B03AE68B-AA50-454C-BC6D-751B8A169EDF</string>
 	<key>IDECodeSnippetLanguage</key>

@@ -10,9 +10,12 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_3_2
-  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-      &lt;# code here #&gt;
-  }
+if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    &lt;#ipad code here#&gt;
+}
+else {
+    &lt;#iphone code here#&gt;
+}
 #endif</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>3B4786EC-997E-420D-891B-CDD4CD9E4832</string>

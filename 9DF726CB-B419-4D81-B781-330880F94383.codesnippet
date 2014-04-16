@@ -2,19 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dddDirectiveMinDeploymentTarget</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeBlock</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    __strong __typeof(self)strongSelf = self;
-</string>
+	<string>#if __IPHONE_OS_VERSION_MIN_REQUIRED &lt; __IPHONE_6_0
+// compile this code only when this project support OS 5.x
+&lt;#code here#&gt;
+#endif</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2F2B576F-2FC9-4187-B838-19D36EBA978D</string>
+	<string>9DF726CB-B419-4D81-B781-330880F94383</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Block code referring to deployment target</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>My Code Snippet</string>
+	<string>Directive Deployment Target</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

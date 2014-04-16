@@ -1,4 +1,25 @@
 # AFNetworking
+### dddAFNetworking2
+AFNetworking 2 code snippet
+
+        NSURL *url = [NSURL URLWithString:<#URL String#>];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        //operation.responseSerializer = [AFSimpleXMLResponseSerializer serializer];
+        //operation.responseSerializer = [AFJSONResponseSerializer serializer];
+        //operation.responseSerializer = [AFXMLParserResponseSerializer serializer];
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, NSDictionary *result) {
+            <# success code #>
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (error.code==NSURLErrorCancelled) {
+                return; // manual cancel
+            }
+            <# failure code #>
+        }];
+        [operation start];
+        //[_operationQueue addOperation:operation];
+        
+
 ### dddAFNetworkingCacheStorageAllowed
 Code block allow to override cache policy to store to disk
 
@@ -16,6 +37,9 @@ General AFNetworking request
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             // response success, operation.responseString
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (error.code==NSURLErrorCancelled) {
+                return; // manual cancel
+            }
             // response failed
         }];
         [operation start];
@@ -37,6 +61,57 @@ Request an image
         
         
 
+### dddAFNetworkingJSONFileUpload
+Upload image with JSON data
+
+            NSData *imageToUpload = UIImageJPEGRepresentation([UIImage imageNamed:@"test.jpg"], 90);
+        AFHTTPClient *client= [AFHTTPClient clientWithBaseURL:[NSURL URLWithString:<#URL String#>]];
+            
+            NSMutableURLRequest *request = [client multipartFormRequestWithMethod:@"POST" path:@"/api/upload" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+                [formData appendPartWithFileData: imageToUpload name:@"file" fileName:@"temp.jpeg" mimeType:@"image/jpeg"];
+            }];
+            
+            AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                // NSString *status = [JSON valueForKeyPath:@"status"];
+                NSLog(@"success: %@", JSON);
+            } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
+                if (error.code==NSURLErrorCancelled) {
+                    return; // manual cancel
+                }
+                // response failed
+                NSInteger statusCode = [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
+                NSLog(@"error: %d >> %@", statusCode, error);
+            }];
+            
+            [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+                CGFloat progress = ((CGFloat)totalBytesWritten) / totalBytesExpectedToWrite;
+                NSLog(@"%f uploaded", progress);
+            }];
+            
+            [operation start];
+
+### dddAFNetworkingJSONPostForm
+Post JSON data
+
+        NSURL *url = [NSURL URLWithString:<#URL String#>];
+            AFHTTPClient* client = [[AFHTTPClient alloc] initWithBaseURL:url];
+        NSDictionary* parameters = @{<#Post Dict#>};
+            NSMutableURLRequest * request = [client requestWithMethod:@"POST" path:@"/api/users/login" parameters:parameters];
+            AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                // NSString *status = [JSON valueForKeyPath:@"status"];
+                NSLog(@"success: %@", JSON);
+                
+            } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
+                if (error.code==NSURLErrorCancelled) {
+                    return; // manual cancel
+                }
+                // response failed
+                NSInteger statusCode = [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
+                NSLog(@"error: %d >> %@", statusCode, error);
+            }];
+            [operation start];
+            //[operationQueue addOperation:operation];  // or using operation queue
+
 ### dddAFNetworkingJSONRequest
 JSON AFNetworking request
 
@@ -47,6 +122,9 @@ JSON AFNetworking request
             // NSString *status = [JSON valueForKeyPath:@"status"];
             <#code here#>
         } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
+            if (error.code==NSURLErrorCancelled) {
+                return; // manual cancel
+            }
             // response failed
         }];
         [operation start];
@@ -55,12 +133,15 @@ JSON AFNetworking request
 ### dddAFNetworkingKissXMLRequest
 AFNetworking XML Request direct to an object
 
-        NSURL *url = [NSURL URLWithString:￼];
+        NSURL *url = [NSURL URLWithString:<#URL String#>￼];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
         AFKissXMLRequestOperation *operation = [AFKissXMLRequestOperation XMLDocumentRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, DDXMLDocument *XMLDocument) {
             // NSLog(@"XMLDocument: %@", XMLDocument);
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, DDXMLDocument *XMLDocument) {
+            if (error.code==NSURLErrorCancelled) {
+                return; // manual cancel
+            }
             // response failed
         }];
         [operation start];
@@ -69,9 +150,9 @@ AFNetworking XML Request direct to an object
         
 
 ### dddAFNetworkingMultipartForm
-Multipart from upload with process report
+Multipart form upload with process report
 
-        NSURL *url = [NSURL URLWithString:￼];
+        NSURL *url = [NSURL URLWithString:￼<#URL String#>];
         AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
         NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:￼ parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
             //NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"avatar.jpg"], 0.5);
@@ -93,10 +174,48 @@ Request XML and convert to NSDictionary/NSOBject directly
                 AFSimpleXMLRequestOperation *operation = [AFSimpleXMLRequestOperation simpleXMLRequestOperationWithRequest:request forceArrayNodes:nil success:^(AFSimpleXMLRequestOperation *operation, NSDictionary *result) {
                     <#code here#>
                 } failure:^(AFSimpleXMLRequestOperation *operation, NSError *error) {
+                    if (error.code==NSURLErrorCancelled) {
+                        return; // manual cancel
+                    }
                     // response failed
                 }];
                 [operation start];
         
+
+# Directive
+### dddDirectiveMinDeploymentTarget
+Block code referring to deployment target
+
+        #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
+        // compile this code only when this project support OS 5.x
+        <#code here#>
+        #endif
+
+### dddDirectiveiPhoneOSVersionMaxAllowed
+Block code according to SDK version
+
+        #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_6_0
+        // compile this code only when using SDK 6.0 or above
+        <#code here#>
+        #endif
+        
+
+# Enumeration
+### dddEnumNSEnum
+Enumeration Declaration NS_ENUM
+
+        typedef NS_ENUM(NSInteger, <#enum name#>) {
+            <#enum value 1#>,
+            <#enum value 2#>
+        };
+
+### dddEnumNSOptions
+Enumeration Declaration NS_OPTIONS
+
+        typedef NS_OPTIONS(NSUInteger, <#option name#>) {
+            <#option 1#> = 1 << 0,
+            <#option 2#> = 1 << 1
+        };
 
 # GCD
 ### dddGCDAsyncToSync
@@ -166,10 +285,27 @@ Dispatch main queue
             <# code here #>
         });
 
+### dddGCDStrongSelf
+convert weakSelf back to strongSelf
+
+            __strong __typeof(self)strongSelf = self;
+        
+
 ### dddGCDWeakSelf
 prepare weak self to prevent cyclic lock
 
-        __weak __typeof(&*self)weakSelf = self;
+        __weak __typeof(self)weakSelf = self;
+
+# NSFoundationVersionNumber
+### dddNSFoundationVersionNumber
+iOS version checking
+
+            if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_6_1) {
+                // Load resources for iOS 6.1 or earlier
+            } else {
+                // Load resources for iOS 7 or later
+            }
+        
 
 # NSNotificationCenter
 ### dddNotificationObserve
@@ -253,6 +389,14 @@ Create Shared Queue
             return sharedOperationQueue;
         }
 
+# TBDstoryboard
+### undefined
+TBDstoryboard
+
+        	UIStoryboard *storyboard = [UIStoryboard storyboardWithName:[AppDelegate storyboardName] bundle:nil];
+        	AboutViewController *about = [storyboard instantiateViewControllerWithIdentifier:ABOUT_IDENTIFIER];
+        
+
 # UIControl
 ### dddUIControlTouchesEvents
 UIControl touches implementation
@@ -306,7 +450,28 @@ Get UIImage by draw on graphics context
         	UIGraphicsEndImageContext();
         
 
+# UIKit
+### dddUIKitIpadOnly
+iPad Only
+
+        #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_3_2
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            <#ipad code here#>
+        }
+        else {
+            <#iphone code here#>
+        }
+        #endif
+
 # UIView
+### dddUIViewControllerNoExtendedLayout
+By default iOS 7 will extend layout to top and bottom bar, add this in viewDidLoad to suppress this
+
+            // prevent ios7 extent to the tabbar and nav bar
+            if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+                self.edgesForExtendedLayout = UIRectEdgeNone;
+        
+
 ### dddUIViewInit
 UIView Init for both frame and coder
 
@@ -315,7 +480,7 @@ UIView Init for both frame and coder
             
         }
         
-        - (id)initWithFrame:(CGRect)frame
+        - (instancetype)initWithFrame:(CGRect)frame
         {
             self = [super initWithFrame:frame];
             if (self) {
@@ -325,7 +490,7 @@ UIView Init for both frame and coder
             return self;
         }
         
-        - (id)initWithCoder:(NSCoder *)aDecoder
+        - (instancetype)initWithCoder:(NSCoder *)aDecoder
         {
             self = [super initWithCoder: aDecoder];
             if (self) {
@@ -364,12 +529,16 @@ Template for implmenting UIViewController rotation
 
         #pragma mark rotation
         
+        #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
+        
         - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
             return YES;
             //return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
         }
         
-        #pragma mark iOS 6 rotation
+        #endif
+        
+        #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_6_0
         
         - (BOOL) shouldAutorotate{
             return YES;
@@ -379,6 +548,12 @@ Template for implmenting UIViewController rotation
             return UIInterfaceOrientationMaskAll;
         }
         
+        -(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+        {
+            return UIInterfaceOrientationPortrait;
+        }
+        
+        #endif
 
 # WTDataRecord
 ### dddDataRecordImp
